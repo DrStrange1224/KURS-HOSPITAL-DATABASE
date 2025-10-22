@@ -1,0 +1,9 @@
+drop table if exists clients cascade;
+drop table if exists departments cascade;
+drop table if exists diagnosis cascade;
+drop table if exists doctors cascade;
+drop table if exists hospitalizations cascade;
+drop table if exists hospitals cascade;
+drop table if exists medical_books cascade;
+drop table if exists specs cascade;
+drop table if exists visits cascade;
