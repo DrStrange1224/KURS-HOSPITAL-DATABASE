@@ -2,11 +2,11 @@
 
 NEEDED FILES:
 <ul>
-<li><b><i>config.ini</i></b>:<br/>
+<li><b><i>config.ini</i></b> - it includes some settings of your postgresql server:<br/>
 [postgresql]<br/>
-host = &gt;your_server_host_name&lt;<br/>
-port = &gt;your_server_port&lt;<br/>
-dbname = &gt;your_database_name&lt;<br/>
-user = &gt;your_user_name&lt;<br/>
-password = &gt;your_password&lt;<br/></li>
+<b>host</b> = &lt;your_server_host_name&gt;<br/>
+<b>port</b> = &lt;your_server_port&gt;<br/>
+<b>dbname</b> = &lt;your_database_name&gt;<br/>
+<b>user</b> = &lt;your_user_name&gt;<br/>
+<b>password</b> = &lt;your_password&gt;<br/></li>
 </ul>
