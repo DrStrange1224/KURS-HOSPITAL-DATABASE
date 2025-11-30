@@ -1,6 +1,8 @@
+/.gitignore
 **/__pycache__
 /.venv
 /.ssh
 /test.py
 /sql_rqs/test.sql
 /config.ini
+/.myapp.py

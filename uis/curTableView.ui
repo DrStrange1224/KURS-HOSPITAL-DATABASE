@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>curTableView</class>
+ <widget class="QMainWindow" name="curTableView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="locale">
+   <locale language="Russian" country="Russia"/>
+  </property>
+  <widget class="QWidget" name="contentWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="locale">
+       <locale language="Russian" country="Russia"/>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::EditTrigger::DoubleClicked</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+      </property>
+      <property name="supportedDragActions">
+       <set>Qt::DropAction::IgnoreAction</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="tableNameLabel">
+      <property name="styleSheet">
+       <string notr="true">font: 18pt &quot;Helvetica&quot;;padding-left: 10pt;</string>
+      </property>
+      <property name="text">
+       <string>UNKNOWN_TABLE</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::TextInteractionFlag::NoTextInteraction</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Действия</string>
+    </property>
+    <addaction name="backBtn"/>
+    <addaction name="addBtn"/>
+    <addaction name="saveBtn"/>
+    <addaction name="reportBtn"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="backBtn">
+   <property name="text">
+    <string>Вернуться</string>
+   </property>
+  </action>
+  <action name="saveBtn">
+   <property name="text">
+    <string>Сохранить изменения</string>
+   </property>
+  </action>
+  <action name="addBtn">
+   <property name="text">
+    <string>Добавить запись</string>
+   </property>
+  </action>
+  <action name="reportBtn">
+   <property name="text">
+    <string>Создать отчет</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
