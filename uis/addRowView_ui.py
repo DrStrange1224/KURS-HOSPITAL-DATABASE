@@ -16,7 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-    QSizePolicy, QVBoxLayout, QWidget)
+    QFormLayout, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_addRowView(object):
     def setupUi(self, addRowView):
@@ -25,10 +25,10 @@ class Ui_addRowView(object):
         addRowView.resize(400, 296)
         self.verticalLayout = QVBoxLayout(addRowView)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.contentVLayout = QVBoxLayout()
-        self.contentVLayout.setObjectName(u"contentVLayout")
+        self.formLayout = QFormLayout()
+        self.formLayout.setObjectName(u"formLayout")
 
-        self.verticalLayout.addLayout(self.contentVLayout)
+        self.verticalLayout.addLayout(self.formLayout)
 
         self.buttonBox = QDialogButtonBox(addRowView)
         self.buttonBox.setObjectName(u"buttonBox")

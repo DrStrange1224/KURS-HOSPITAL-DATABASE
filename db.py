@@ -3,6 +3,7 @@ import psycopg2.pool
 from configparser import ConfigParser as cp
 from contextlib import contextmanager
 from mycp import *
+import msvcrt
 
 class DBParser:
     """
@@ -13,11 +14,26 @@ class DBParser:
 
     def init(iniFilePath:str, section:str):
         params = get_config(iniFilePath,section)
-        __class__.dbpool = psycopg2.pool.ThreadedConnectionPool(
-            minconn=1,
-            maxconn=1,
-            **params)
-        __class__.conn = __class__.dbpool.getconn()
+        def tryConnect():
+            __class__.dbpool = psycopg2.pool.ThreadedConnectionPool(
+                minconn=1,
+                maxconn=1,
+                **params)
+            __class__.conn = __class__.dbpool.getconn()
+        __class__.yn = b''
+        while __class__.yn != b'y':
+            try:
+                tryConnect()
+                __class__.yn = b'y'
+            except psycopg2.OperationalError as e:
+                print("Connection to server failed. Wanna try again? (y/n) ")
+                __class__.yn = msvcrt.getch().lower()
+                if __class__.yn == b'y':
+                    __class__.yn = b''
+                elif __class__.yn == b'n':
+                    raise
+                else:
+                    print("Unknown command")
         __class__.cur = __class__.conn.cursor()
 
     def execute(sqlquery:str) -> list:
@@ -29,7 +45,8 @@ class DBParser:
             res = __class__.cur.fetchall()
             __class__.conn.commit()
             return res
-        except:
+        except Exception as e:
+            print(e) 
             __class__.conn.rollback()
             raise
     

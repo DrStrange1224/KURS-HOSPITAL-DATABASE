@@ -29,9 +29,6 @@
       <property name="selectionMode">
        <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
       </property>
-      <property name="supportedDragActions">
-       <set>Qt::DropAction::IgnoreAction</set>
-      </property>
      </widget>
     </item>
     <item row="0" column="0">
@@ -66,8 +63,8 @@
      <string>Действия</string>
     </property>
     <addaction name="backBtn"/>
+    <addaction name="saveBtn_2"/>
     <addaction name="addBtn"/>
-    <addaction name="saveBtn"/>
     <addaction name="reportBtn"/>
    </widget>
    <addaction name="menu"/>
@@ -91,6 +88,11 @@
   <action name="reportBtn">
    <property name="text">
     <string>Создать отчет</string>
+   </property>
+  </action>
+  <action name="saveBtn_2">
+   <property name="text">
+    <string>Сохранить изменения</string>
    </property>
   </action>
  </widget>
