@@ -43,8 +43,9 @@ class Ui_curTableView(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.tableWidget = QTableWidget(self.contentWidget)
         self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.tableWidget.setLocale(QLocale(QLocale.Russian, QLocale.Russia))
-        self.tableWidget.setEditTriggers(QAbstractItemView.EditTrigger.DoubleClicked)
+        self.tableWidget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tableWidget.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
 
         self.gridLayout.addWidget(self.tableWidget, 1, 0, 1, 1)

@@ -20,11 +20,14 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0">
      <widget class="QTableWidget" name="tableWidget">
+      <property name="contextMenuPolicy">
+       <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+      </property>
       <property name="locale">
        <locale language="Russian" country="Russia"/>
       </property>
       <property name="editTriggers">
-       <set>QAbstractItemView::EditTrigger::DoubleClicked</set>
+       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
       </property>
       <property name="selectionMode">
        <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>

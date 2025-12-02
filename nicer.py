@@ -6,7 +6,7 @@ niceTableNames = {
     "departments" : "Отделения",
     "doctors" : "Доктора",
     "specs" : "Специализации",
-    "medical_books" : "Медицинские книги",
+    #"medical_books" : "Медицинские книги",
     "clients" : "Клиенты",
 }
 
@@ -62,10 +62,10 @@ niceTableHeaders = {
         "id" : "ID специальности",
         "name" : "Название специальности",
     },
-    "medical_books":{
-        "id" : "ID мед книжки",
-        "diagnosis_array" : "ID диагнозов",
-    },
+    # "medical_books":{
+    #     "id" : "ID мед книжки",
+    #     "diagnosis_array" : "ID диагнозов",
+    # },
     "clients":{
         "id" : "ID клиента",
         "full_name" : "ФИО",
