@@ -7,6 +7,9 @@ from py_uis.addRowView import Ui_addRowView
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6 import QtCore
+from PySide6.QtGui import *
+import pandas as pd
+from docx import Document
 
 class TableViewWindow(QMainWindow):
     def __init__(self):
@@ -374,9 +377,32 @@ class reportViewWindow(QMainWindow):
         self.ui.saveBtn.setDisabled(True)
         self.ui.saveBtn_2.setDisabled(True)
         self.ui.reportBtn.setDisabled(True)
+        self.saveReportBtn = QAction(self)
+        self.saveReportBtn.triggered.connect(self.saveReport)
+        self.ui.menu.addAction(self.saveReportBtn)
 
         self.ui.tableWidget.customContextMenuRequested.connect(self.showContextMenu)
     
+    def saveReport(self):
+        data = []
+        for row in range(1,self.ui.tableWidget.rowCount()):
+            row_data = []
+            for column in range(self.ui.tableWidget.columnCount()):
+                item = self.ui.tableWidget.item(row, column)
+                row_data.append(item.text() if item else None)
+            data.append(row_data)
+        df = pd.DataFrame(data)
+        print(df)
+
+        doc = Document()
+        table = doc.add_table(rows = df.shape[0] + 1, cols=df.shape[1])
+        for j in range(df.shape[1]):
+            table.cell(0,j).text = self.curHeaders[j]
+        for i in range(df.shape[0]):
+            for j in range(df.shape[1]):
+                table.cell(i + 1, j).text = str(df.iat[i, j])
+        doc.save('lastreport.docx')
+
     def showTable(self, sortingColName:str="", AZ:int=0):
         print([i.text() for i in self.filters.values()])
         finalRq = f"select * from ({self.baseRq}) as temptable"
